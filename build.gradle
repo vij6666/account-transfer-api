@@ -1,16 +1,20 @@
 plugins {
     id 'java'
+    id 'application'
+    id "idea"
 }
 
 group 'org.vijaysidhu'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
-
+mainClassName = 'AccountTransferService'
 
 repositories {
     mavenCentral()
 }
+
+
 
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.10'
@@ -24,3 +28,16 @@ dependencies {
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+jar {
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    manifest {
+        attributes(
+                'Main-Class': 'AccountTransferService'
+        )
+    }
+
+}
+
