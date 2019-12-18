@@ -1,5 +1,5 @@
 # account-transfer-api
-Revolut account transfer api
+Revolut account transfer api, a restful service to service account transfers.
 
 ## How to build
 Execute: *gradlew build*
